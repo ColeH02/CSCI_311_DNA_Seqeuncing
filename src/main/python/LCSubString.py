@@ -1,3 +1,11 @@
+"""
+LONGEST COMMON SUBSTRING
+Author: Cole Hausman
+Project: CSCI 311 DNA Sequencing
+- Algorithm which computes the longest common substring of two strings
+- String inputs are case sensitive 
+"""
+
 def lcSubstring(s1 , s2):
   m = len(s1) + 1
   n = len(s2) + 1
