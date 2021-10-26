@@ -59,7 +59,7 @@ print("=====================")
 
 exit = False;
 
-unknownDNA = FileHandlingMain.ReadFile("DNA_query.txt")
+unknownDNA = FileHandlingMain.ReadFile("test3.txt")
 DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("DNA_sequences.txt"))
 # Begins main program loop for user
 while(not exit):
