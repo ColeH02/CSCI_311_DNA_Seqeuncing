@@ -52,8 +52,3 @@ def HandleDNA_sequences(DNA_sequencesStr):
             DNA_sequencesDict[key] += line.upper()
 
     return DNA_sequencesDict
-
-
-
-# print(ReadFile("DNA_sequences.txt"))
-# print(HandleDNA_sequences(ReadFile("DNA_sequences.txt")))
