@@ -7,7 +7,8 @@ Project: CSCI 311 DNA Sequencing
 - Functions as main menu and runner of our code 
 """ 
 import LCSubString
-from src.main.python import FileHandlingMain
+from ZeheAlgorithm import *
+import FileHandlingMain
 
 """ 
 Prints out options of algorithms 
@@ -21,9 +22,10 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
   print("1) Longest Common Sequence") 
   print("2) Longest Common Substring") 
   print("3) Edit Distance")
-  print("4) Exit program")
+  print("4) Zehe's Algorithm")
+  print("5) Exit program")
 
-  choice = input("\nType choice (1-4) here: ")
+  choice = input("\nType choice (1-5) here: ")
 
   # If the user wants to use L-C-Subsequence
   if (choice == "1"):
@@ -46,9 +48,14 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
   # If the user wants to use Edit distance
   elif (choice == "3"):
     pass
-  # If the user wants to exit, change exit condition
+  # If user wants to use Zehe's algorithm
   elif (choice == "4"):
-    exit = True;
+    Key, ratioVar = ZeheAlgorithm(unknownDNA, DNASequenceDict)
+    print("Sequence name and function: " + Key)
+    print("Variation in letter count / total (percentages): " + str(ratioVar))
+  # If the user wants to exit, change exit condition
+  elif (choice == "5"):
+    exit = True
 
 
 """ MAIN SECTION OF PROGRAM """
@@ -57,10 +64,10 @@ print("=====================")
 print("DNA SEQUENCE MATCHING") 
 print("=====================")  
 
-exit = False;
+exit = False
 
-unknownDNA = FileHandlingMain.ReadFile("test3.txt")
-DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("DNA_sequences.txt"))
+unknownDNA = FileHandlingMain.ReadFile("src/main/python/DNA_query.txt")
+DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src/main/python/DNA_sequences.txt"))
 # Begins main program loop for user
 while(not exit):
   chooseAlgorithm(unknownDNA, DNASequenceDict)
