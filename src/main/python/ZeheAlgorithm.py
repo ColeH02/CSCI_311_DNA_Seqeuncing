@@ -48,11 +48,12 @@ def ZeheAlgorithm(t, sequences):
                 ratios[l] += 1
 
         variation = 0
-        # Now divide by total to get ratios
+        # Now divide by total and get ratio variation
         for letter in ratios:
-            ratios[letter] = (ratios[letter] / len(sequences[key]))
+            ratios[letter] = abs(ratios[letter] / len(sequences[key]) - tRatios[letter])
+            ratios[letter] = round(ratios[letter], 5)
             # Keep track of how much the ratios vary to target ratios
-            variation += abs(ratios[letter] - tRatios[letter])
+            variation += ratios[letter]
 
         if variation < leastVariation:
             leastVariation = variation

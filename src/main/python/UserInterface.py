@@ -52,7 +52,7 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
   elif (choice == "4"):
     Key, ratioVar = ZeheAlgorithm(unknownDNA, DNASequenceDict)
     print("Sequence name and function: " + Key)
-    print("Variation in letter count / total (percentages): " + str(ratioVar))
+    print("Variation in letter count / total percentages: " + str(ratioVar))
   # If the user wants to exit, change exit condition
   elif (choice == "5"):
     exit = True
