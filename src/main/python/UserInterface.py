@@ -58,7 +58,10 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
     if userInputSTR == "y" or userInputSTR == "yes" or userInputSTR == "t" or userInputSTR == "true":
       userInput = True
 
-    EditDistanceMain(unknownDNA, DNASequenceDict, userInput)
+    if len(unknownDNA) >= 1:
+      EditDistanceMain(unknownDNA, DNASequenceDict, userInput)
+    else:
+      print("\nSequence of length 0 entered")
 
   # If user wants to use Zehe's algorithm
   elif (choice == "4"):
@@ -79,7 +82,7 @@ print("=====================")
 
 exit = False
 
-unknownDNA = FileHandlingMain.ReadFile("src\main\python\\test3.txt")
+unknownDNA = FileHandlingMain.ReadFile("src\main\python\\test1.txt")
 DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src\main\python\DNA_sequences.txt"))
 # Begins main program loop for user
 while(not exit):

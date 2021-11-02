@@ -26,7 +26,7 @@ def ReadFile(file):
         fileSTR += line
 
     rawFile.close()
-    return fileSTR
+    return fileSTR.upper().strip().strip("\n")
 
 def HandleDNA_sequences(DNA_sequencesStr):
     """
