@@ -9,6 +9,7 @@ Project: CSCI 311 DNA Sequencing
 import LCSubString
 from ZeheAlgorithm import *
 import FileHandlingMain
+from src.main.python.EditDistance import EditDistanceMain
 
 """ 
 Prints out options of algorithms 
@@ -45,16 +46,28 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
         maxSubString = subString
     print("Longest Substring: " + maxSubString)
     print("Sequence name and function: " + maxKey)
+
   # If the user wants to use Edit distance
   elif (choice == "3"):
-    pass
+
+    # Getting input from user
+    userInputSTR = input("\nDisplay Edits? (yes/no): ").strip().lower()
+    userInput = False
+
+    # Interpreting input
+    if userInputSTR == "y" or userInputSTR == "yes" or userInputSTR == "t" or userInputSTR == "true":
+      userInput = True
+
+    EditDistanceMain(unknownDNA, DNASequenceDict, userInput)
+
   # If user wants to use Zehe's algorithm
   elif (choice == "4"):
     Key, ratioVar = ZeheAlgorithm(unknownDNA, DNASequenceDict)
     print("Sequence name and function: " + Key)
     print("Variation in letter count / total percentages: " + str(ratioVar))
+
   # If the user wants to exit, change exit condition
-  elif (choice == "5"):
+  else:
     exit = True
 
 
@@ -66,7 +79,7 @@ print("=====================")
 
 exit = False
 
-unknownDNA = FileHandlingMain.ReadFile("src\main\python\DNA_query.txt")
+unknownDNA = FileHandlingMain.ReadFile("src\main\python\\test3.txt")
 DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src\main\python\DNA_sequences.txt"))
 # Begins main program loop for user
 while(not exit):
