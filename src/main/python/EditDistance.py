@@ -14,7 +14,6 @@
 """
 import sys
 
-
 class Directions:
     """
     Class/Enum to store values to for table to recreate solution
@@ -29,10 +28,10 @@ class Colors:
     Colors to be used when printing solution. The default color (white) means no changes were made to that
     character.
     """
-    BLUE = "\033[94m"  # Substitute
+    BLUE  = "\033[94m" # Substitute
     GREEN = "\033[92m" # Insert
-    RED = "\033[91m"   # Delete
-    END = "\033[0m"    # Stop color
+    RED   = "\033[91m" # Delete
+    END   = "\033[0m"  # Stop color
 
 def EditDistanceMain(unknown, DNASequenceDict, displayEdits):
     """
@@ -151,19 +150,23 @@ def _PrintSolution(b, unknown, known):
     j = len(known)
 
     while b[i][j] != 0:
+        # Substitution
         if b[i][j] == Directions.DIAGONAL_SUB:
             outputEdits = Colors.BLUE + known[j - 1] + Colors.END + outputEdits
             i -= 1
             j -= 1
 
+        # Insertion
         elif b[i][j] == Directions.LEFT:
             outputEdits = Colors.GREEN + known[j - 1] + Colors.END + outputEdits
             j -= 1
 
+        # Deletion
         elif  b[i][j] == Directions.UP:
             outputEdits = Colors.RED + unknown[i - 1] + Colors.END + outputEdits
             i -= 1
 
+        # No change
         else:
             outputEdits = known[j - 1] + outputEdits
             i -= 1

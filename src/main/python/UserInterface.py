@@ -58,6 +58,7 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
     if userInputSTR == "y" or userInputSTR == "yes" or userInputSTR == "t" or userInputSTR == "true":
       userInput = True
 
+    # Checking that non-empty sequences are used
     if len(unknownDNA) >= 1:
       EditDistanceMain(unknownDNA, DNASequenceDict, userInput)
     else:
@@ -82,8 +83,10 @@ print("=====================")
 
 exit = False
 
+# Loading in files
 unknownDNA = FileHandlingMain.ReadFile("src\main\python\\test1.txt")
 DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src\main\python\DNA_sequences.txt"))
+
 # Begins main program loop for user
 while(not exit):
   chooseAlgorithm(unknownDNA, DNASequenceDict)

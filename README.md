@@ -24,3 +24,8 @@ _/src/main/python/FileHandling/FileHandlingMain.py_
 _/src/main/python/LCSubString.py_
   - Contains code for finding the longest common substring
   - Inputs are two strings s1 and s2
+
+_/src/main/python/EditDistance.py_
+  - Contains functions for finding the minimum edit distance
+  - Requires three inputs: unknown DNA sequence, dictionary of known sequences, and boolean indicating if the user wants to see the edits
+  - 
