@@ -66,8 +66,8 @@ print("=====================")
 
 exit = False
 
-unknownDNA = FileHandlingMain.ReadFile("src/main/python/DNA_query.txt")
-DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src/main/python/DNA_sequences.txt"))
+unknownDNA = FileHandlingMain.ReadFile("src\main\python\DNA_query.txt")
+DNASequenceDict = FileHandlingMain.HandleDNA_sequences(FileHandlingMain.ReadFile("src\main\python\DNA_sequences.txt"))
 # Begins main program loop for user
 while(not exit):
   chooseAlgorithm(unknownDNA, DNASequenceDict)
