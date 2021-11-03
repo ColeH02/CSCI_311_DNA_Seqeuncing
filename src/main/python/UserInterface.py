@@ -10,6 +10,8 @@ import LCSubString
 from ZeheAlgorithm import *
 import FileHandlingMain
 from src.main.python.EditDistance import EditDistanceMain
+from src.main.python.LCSubSequence import lcSubsequence
+from src.main.python.NeedlemanWunschAlgorithm import nw
 
 """ 
 Prints out options of algorithms 
@@ -24,13 +26,27 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
   print("2) Longest Common Substring") 
   print("3) Edit Distance")
   print("4) Zehe's Algorithm")
-  print("5) Exit program")
+  print("5) Needleman Wunsch Algorithm")
+  print("6) Exit program")
 
-  choice = input("\nType choice (1-5) here: ")
+  choice = input("\nType choice (1-6) here: ")
 
   # If the user wants to use L-C-Subsequence
   if (choice == "1"):
-    pass
+    # LCSubString()
+    maxLen = 0
+    maxKey = ""
+    maxSubSequence = ""
+    for key in DNASequenceDict:
+      subString = lcSubsequence(unknownDNA, DNASequenceDict[key])
+      # print(subString)
+      if (len(subString) > maxLen):
+        maxLen = len(subString)
+        maxKey = key
+        maxSubSequence = subString
+    print("Longest Subsequence: " + maxSubSequence)
+    print("Sequence name and function: " + maxKey)
+
   # If the user wants to use L-C-Substring
   elif (choice == "2"):
     # LCSubString()
@@ -70,6 +86,20 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
     print("Sequence name and function: " + Key)
     print("Variation in letter count / total percentages: " + str(ratioVar))
 
+  # If user wants to use Needleman Wunsch algorithm
+  elif (choice == "5"):
+    maxLen = 0
+    maxKey = ""
+    bestMatch = ""
+    for key in DNASequenceDict:
+      output = nw(unknownDNA, DNASequenceDict[key])
+      # print(subString)
+      if (len(output) > maxLen):
+        maxLen = len(output)
+        maxKey = key
+        bestMatch = output
+    print("Closest Match: " + bestMatch)
+    print("Sequence name and function: " + maxKey)
   # If the user wants to exit, change exit condition
   else:
     exit = True

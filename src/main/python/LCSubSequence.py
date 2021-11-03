@@ -6,7 +6,7 @@ Project: CSCI 311 DNA Sequencing
 - String inputs are case sensitive
 """
 
-def lcSubstring(s1 , s2):
+def lcSubsequence(s1, s2):
   m = len(s1) + 1
   n = len(s2) + 1
   retval = ""
