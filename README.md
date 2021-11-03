@@ -25,7 +25,18 @@ _/src/main/python/LCSubString.py_
   - Contains code for finding the longest common substring
   - Inputs are two strings s1 and s2
 
+_/src/main/python/LCSubSequence.py_
+  - Contains code for finding the longest common subsequence
+  - Inputs are two strings s1 and s2
+
 _/src/main/python/EditDistance.py_
   - Contains functions for finding the minimum edit distance
   - Requires three inputs: unknown DNA sequence, dictionary of known sequences, and boolean indicating if the user wants to see the edits
-  - 
+
+_/src/main/python/NeedlemanWunschAlgorithm.py_
+  - Uses the Needleman Wunsch Algorithm
+  - Input should be in the form nw(x, y), where x and y are strings, in order to leave all other parameters as defaults.
+
+_/src/main/python/ZeheAlgorithm.py_
+  - Uses unique algorithm designed by famed computer engineer Cole Zehe
+  - Inputs: t = target sequence, sequences = dictionary where keys are function of seq., values are sequence of chars
