@@ -9,9 +9,10 @@ Project: CSCI 311 DNA Sequencing
 import LCSubString
 from ZeheAlgorithm import *
 import FileHandlingMain
-from src.main.python.EditDistance import EditDistanceMain
-from src.main.python.LCSubSequence import lcSubsequence
-from src.main.python.NeedlemanWunschAlgorithm import nw
+from EditDistance import EditDistanceMain
+from LCSubSequence import lcSubsequence
+from NeedlemanWunschAlgorithm import nw
+from triples_algorithm import triples_algorithm
 
 """ 
 Prints out options of algorithms 
@@ -20,14 +21,14 @@ Allows user to input which to use and executes it
 def chooseAlgorithm(unknownDNA, DNASequenceDict):
   global exit
   # List out choices for user
-  print("\nWelcome to our DNA Sequence Matching program") 
-  print("Select one of the following algorithms to use:")
-  print("1) Longest Common Sequence") 
+  print("\nSelect one of the following algorithms to use:")
+  print("1) Longest Common Subsequence") 
   print("2) Longest Common Substring") 
   print("3) Edit Distance")
   print("4) Zehe's Algorithm")
   print("5) Needleman Wunsch Algorithm")
-  print("6) Exit program")
+  print("6) Triples Algorithm")
+  print("7) Exit program")
 
   choice = input("\nType choice (1-6) here: ")
 
@@ -100,8 +101,15 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
         bestMatch = output
     print("Closest Match: " + bestMatch)
     print("Sequence name and function: " + maxKey)
+  
+  # If user wants to use Needleman Wunsch algorithm
+  elif (choice == "6"):
+    matchKey, maxTriple = triples_algorithm(unknownDNA, DNASequenceDict)
+    print("Match key: " + matchKey)
+    print("Max triple: " + str(maxTriple))
+  
   # If the user wants to exit, change exit condition
-  else:
+  elif (choice == "7"):
     exit = True
 
 
@@ -109,7 +117,8 @@ def chooseAlgorithm(unknownDNA, DNASequenceDict):
 
 print("=====================") 
 print("DNA SEQUENCE MATCHING") 
-print("=====================")  
+print("=====================")
+print("\nWelcome to our DNA Sequence Matching program") 
 
 exit = False
 
