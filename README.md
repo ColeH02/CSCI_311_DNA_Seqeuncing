@@ -40,3 +40,7 @@ _/src/main/python/NeedlemanWunschAlgorithm.py_
 _/src/main/python/ZeheAlgorithm.py_
   - Uses unique algorithm designed by famed computer engineer Cole Zehe
   - Inputs: t = target sequence, sequences = dictionary where keys are function of seq., values are sequence of chars
+
+_/src/main/python/triples_algorithm.py_
+  - Looks at triples of letters in the sequences
+  - Inputs: query = query sequence to match, seqs = dictionary of sequences
